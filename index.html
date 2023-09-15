@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance Form</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script> -->
 
 </head>
 <body>
     <div class="container">
-        <h1>Attendance Form</h1>
-        <form id="attendance-form">
-            <label for="name">Name?:</label>
+        <h1>Internship Sign Out</h1>
+        <form 
+        id="attendance-form"
+        method="POST" 
+        action="https://script.google.com/macros/s/AKfycbwUOkWH5xN8WZcfV02FFyVXIqb44XkgsaAmR3l02hHS_AYt_wSevIbdYFgwSNxuA8n01Q/exec">
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
         
             <label for="student-id">Student ID:</label>
             <input type="text" id="student-id" name="student-id" required><br><br>
         
             <!-- Other form fields as needed -->
-        
+            <input type="submit" value="Submit">
             <input type="button" id="scan-barcode-button" value="Scan Barcode">
         </form>        
     </div>
