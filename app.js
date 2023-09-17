@@ -11,6 +11,14 @@ function isWithinCoordinates(latitude, longitude) {
         Math.abs(longitude - allowedLongitude) < threshold
     );
 }
+function isAllowedTime() {
+    const currentDate = new Date();
+    const currentHour = currentDate.getUTCHours() - 5; // Convert to EST
+    const currentMinute = currentDate.getUTCMinutes();
+
+    // Check if it's 1:10 PM EST
+    return currentHour === 13 && currentMinute === 10;
+}
 
 // Function to fill in form fields based on location
 function fillFormBasedOnLocation(latitude, longitude) {
@@ -18,12 +26,15 @@ function fillFormBasedOnLocation(latitude, longitude) {
     const timeStatus = document.getElementById('timeStatus');
 
     if (isWithinCoordinates(latitude, longitude)) {
-        // Fill in form fields automatically
         locationStatus.innerText = 'Inside School';
-        timeStatus.innerText = 'Allowed Time';
+        if (isAllowedTime()) {
+            timeStatus.innerText = 'Allowed Time';
+        } else {
+            timeStatus.innerText = 'Not Allowed Time';
+        }
     } else {
         locationStatus.innerText = 'Outside School';
-        timeStatus.innerText = 'Allowed Time';
+        timeStatus.innerText = 'Not Allowed Time';
     }
 }
 
