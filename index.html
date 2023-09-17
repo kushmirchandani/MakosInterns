@@ -61,14 +61,17 @@
             margin-top: 10%;
             margin-bottom: 0%;
         }
-        button{
-            background-color: #000;
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #000000;
             color: #fff;
+            text-decoration: none;
             border: none;
-            padding: 10px 100px;
+            border-radius: 5px;
             cursor: pointer;
-            border-radius: 15px;
-            margin-top: 20px;
+            font-weight: bold; margin-top: 20px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
     </style>
 </head>
@@ -79,9 +82,7 @@
         <h2>Makos Interns Sign Out</h2>
         <form id="attendance-form" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec">
             <p> Welcome Makos Interns! Make sure you sign out BEFORE you leave campus and fill your ID correctly or you will be marked ABSENT</p>
-            <a href="form.html">
-                <button>I understand & wish to proceed</button>
-            </a>
+            <a id="button" href="form.html" class="button">Agree & Continue</a>
         <p id="TLS"> © A Life Studio Experience</p>
     </div>
     <div id="successMessage" style="display: none;">Success! Data has been submitted.</div>
