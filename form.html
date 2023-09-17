@@ -61,15 +61,6 @@
             margin-top: 10%;
             margin-bottom: 0%;
         }
-        button{
-            background-color: #000;
-            color: #fff;
-            border: none;
-            padding: 10px 100px;
-            cursor: pointer;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
@@ -78,10 +69,22 @@
         <img id="logo" src="https://gomakos.org/pics/MAST-ACADEMY_MOBILE.gif" alt="School Logo">
         <h2>Makos Interns Sign Out</h2>
         <form id="attendance-form" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec">
-            <p> Welcome Makos Interns! Make sure you sign out BEFORE you leave campus and fill your ID correctly or you will be marked ABSENT</p>
-            <a href="form.html">
-                <button>I understand & wish to proceed</button>
-            </a>
+            <label for="studentName">Name:</label>
+            <input type="text" id="studentName" name="studentName" required><br><br>
+
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID" required><br><br>
+            
+            <label for="locationStatus">Location Status:</label>
+            <span id="locationStatus"></span><br><br>
+            
+            <label for="timeStatus">Time Status:</label>
+            <span id="timeStatus"></span><br><br>
+
+            <!-- Other form fields as needed -->
+            <input type="submit" value="Submit">
+            <!-- <input type="button" id="scan-barcode-button" value="Scan Barcode"> -->
+        </form>
         <p id="TLS"> © A Life Studio Experience</p>
     </div>
     <div id="successMessage" style="display: none;">Success! Data has been submitted.</div>
