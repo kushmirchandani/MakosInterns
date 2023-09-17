@@ -1,11 +1,10 @@
-// Function to check if the user's location is within certain coordinates
 function isWithinCoordinates(latitude, longitude) {
     // Define your allowed coordinates (e.g., for a specific classroom)
     const allowedLatitude = 25.73942868813645;
     const allowedLongitude = -80.16674834425794;
-    
+
     // Set a threshold for the allowed range (you can adjust this)
-    const threshold = 1.111;
+    const threshold = 0.01; // Adjust as needed
 
     return (
         Math.abs(latitude - allowedLatitude) < threshold &&
@@ -15,18 +14,16 @@ function isWithinCoordinates(latitude, longitude) {
 
 // Function to fill in form fields based on location
 function fillFormBasedOnLocation(latitude, longitude) {
-    const form = document.getElementById('attendance-form');
-    const nameInput = document.getElementById('name');
-    const studentIdInput = document.getElementById('student-id');
+    const locationStatus = document.getElementById('locationStatus');
+    const timeStatus = document.getElementById('timeStatus');
 
     if (isWithinCoordinates(latitude, longitude)) {
         // Fill in form fields automatically
-        nameInput.value = 'John Doe';
-        studentIdInput.value = '12345';
-        // You can fill in other fields as needed
-    }
-    else{
-        Text("Get Your Ass Back To School!")
+        locationStatus.innerText = 'Inside School';
+        timeStatus.innerText = 'Allowed Time';
+    } else {
+        locationStatus.innerText = 'Outside School';
+        timeStatus.innerText = 'Allowed Time';
     }
 }
 
@@ -35,33 +32,30 @@ if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (position) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
-        
+
         // Check if the user is within the allowed coordinates and fill the form
         fillFormBasedOnLocation(latitude, longitude);
     });
 }
 
-// Configure QuaggaJS
-Quagga.init({
-    inputStream: {
-        name: 'Live',
-        type: 'LiveStream',
-        target: document.querySelector('#scanner-container'),
-    },
-    decoder: {
-        readers: ['code_128_reader'], // Specify the barcode type you want to scan
-    },
-});
-
-// Start QuaggaJS when the scan button is clicked
-document.querySelector('#scan-barcode-button').addEventListener('click', function () {
-    Quagga.start();
-});
-
-// Listen for a barcode detection event
-Quagga.onDetected(function (result) {
-    const barcode = result.codeResult.code;
-    document.querySelector('#student-id').value = barcode;
-    Quagga.stop();
-});
-
+document.getElementById("attendance-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+  
+    // Serialize the form data
+    var formData = new FormData(this);
+  
+    // Send an AJAX request to your Google Apps Script
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec", true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // Redirect to the success.html page
+            window.location.href = "https://www.apple.com/";
+          } else {
+            console.error("Error:", xhr.responseText);
+          }
+        };
+    // Send the form data
+    xhr.send(formData);
+  });
+  

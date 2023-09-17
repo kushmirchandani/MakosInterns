@@ -6,26 +6,89 @@
     <title>Attendance Form</title>
     <link rel="stylesheet" href="styles.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script> -->
-
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 100px;
+            max-width: 550px;
+        }
+        h2 {
+            margin: 0;
+            margin-bottom: 50px;
+            padding-top: 15px;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        form {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+            
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc; /* Add a border for input fields */
+            border-radius: 15px; /* Add rounded corners */
+        }
+        input[type="submit"] {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 100px;
+            cursor: pointer;
+            border-radius: 15px; /* Add rounded corners for the button */
+        }
+        input[type="submit"]:hover {
+            background-color: #333; /* Darken the button on hover */
+        }
+        p[id="TLS"]{
+            color: #ccc;
+            margin-top: 10%;
+            margin-bottom: 0%;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <h1>Internship Sign Out</h1>
-        <form 
-        id="attendance-form"
-        method="POST" 
-        action="https://script.google.com/macros/s/AKfycbwGAC_N0hYXRxUkUfvJlpi69G3R0TiOpmdG4mJjFQZUpAF87VDugHrpCioD9yhEcVkemQ/exec">
-            <label for="name">Name lol:</label>
-            <input type="text" id="name" name="name" required><br><br>
-        
-            <label for="student-id">Student ID:</label>
-            <input type="text" id="student-id" name="student-id" required><br><br>
-        
+        <img id="logo" src="https://gomakos.org/pics/MAST-ACADEMY_MOBILE.gif" alt="School Logo">
+        <h2>Makos Interns Sign Out</h2>
+        <form id="attendance-form" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec">
+            <label for="studentName">Name:</label>
+            <input type="text" id="studentName" name="studentName" required><br><br>
+
+            <label for="studentID">Student ID:</label>
+            <input type="text" id="studentID" name="studentID" required><br><br>
+            
+            <label for="locationStatus">Location Status:</label>
+            <span id="locationStatus"></span><br><br>
+            
+            <label for="timeStatus">Time Status:</label>
+            <span id="timeStatus"></span><br><br>
+
             <!-- Other form fields as needed -->
             <input type="submit" value="Submit">
-            <input type="button" id="scan-barcode-button" value="Scan Barcode">
-        </form>        
+            <!-- <input type="button" id="scan-barcode-button" value="Scan Barcode"> -->
+        </form>
+        <p id="TLS"> © A Life Studio Experience</p>
     </div>
+    <div id="successMessage" style="display: none;">Success! Data has been submitted.</div>
+
     <script src="app.js"></script>
 </body>
 </html>
