@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Makos Interns</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script> -->
     <style>
         body {
@@ -52,6 +54,7 @@
             padding: 10px 100px;
             cursor: pointer;
             border-radius: 15px; /* Add rounded corners for the button */
+            margin-bottom: 50px;
         }
         input[type="submit"]:hover {
             background-color: #333; /* Darken the button on hover */
@@ -60,6 +63,9 @@
             color: #ccc;
             margin-top: 10%;
             margin-bottom: 0%;
+        }
+        div[id="status"]{
+            padding-top: 100px;
         }
     </style>
 </head>
@@ -76,18 +82,21 @@
 
             <label for="studentID">Student ID:</label>
             <input type="text" id="studentID" name="studentID" required><br><br>
-            
-            <label for="locationStatus">Location Status:</label>
-            <span id="locationStatus"></span><br><br>
-            
-            <label for="timeStatus">Time Status:</label>
-            <span id="timeStatus"></span><br><br>
 
             <!-- Other form fields as needed -->
             <input type="submit" value="Submit" id="submitButton" > <!-- Disabled by default -->
             <!-- <input type="button" id="scan-barcode-button" value="Scan Barcode"> -->
         </form>
-        <p id="TLS"> © A Life Studio Experience</p>
+        <div class="status">
+        <label for="locationStatus">Location Status:</label>
+            <span id="locationStatus"></span><br><br>
+            
+            <label for="timeStatus">Time Status:</label>
+            <span id="timeStatus"></span><br><br>
+            </div>
+            <p id="TLS"> © A Life Studio Experience</p>
+        </div>
+        
     </div>
     <div id="receivedMessage" style="display: none;">
         <p>Received! Your data has been submitted.</p>
