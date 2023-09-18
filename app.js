@@ -1,9 +1,9 @@
 function isWithinCoordinates(latitude, longitude) {
     // Define your allowed coordinates (e.g., for a specific classroom)
-    // const allowedLatitude = 25.686458460451433;
-    // const allowedLongitude = -80.31437343518589;
-    const allowedLatitude = 25.73942868813645;
-    const allowedLongitude = -80.16674834425794;
+    const allowedLatitude = 25.686458460451433;
+    const allowedLongitude = -80.31437343518589;
+    // const allowedLatitude = 25.73942868813645;
+    // const allowedLongitude = -80.16674834425794;
 
     // Set a threshold for the allowed range (you can adjust this)
     const threshold = 0.01; // Adjust as needed
