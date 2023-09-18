@@ -27,7 +27,7 @@ function updateFormFields(latitude, longitude) {
     const locationStatus = document.getElementById('locationStatus');
     const timeStatus = document.getElementById('timeStatus');
     const submitButton = document.getElementById('submitButton'); // Added ID to the submit button
-    if (isWithinCoordinates(latitude, longitude) || isAllowedTime()) {
+    if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
         locationStatus.innerText = 'Inside School';
         timeStatus.innerText = 'Allowed Time';
         submitButton.style.display = 'block'; // Show the submit button
