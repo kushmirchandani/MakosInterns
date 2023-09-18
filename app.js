@@ -11,30 +11,29 @@ function isWithinCoordinates(latitude, longitude) {
         Math.abs(longitude - allowedLongitude) < threshold
     );
 }
+
 function isAllowedTime() {
     const currentDate = new Date();
     const currentHour = currentDate.getUTCHours() - 5; // Convert to EST
     const currentMinute = currentDate.getUTCMinutes();
 
-    // Check if it's 1:10 PM EST
-    return currentHour === 13 && currentMinute === 10;
+    // Check if it's within the allowed time period (adjust as needed)
+    return currentHour >= 8 && currentHour < 15; // Example: 8 AM to 3 PM EST
 }
 
-// Function to fill in form fields based on location
-function fillFormBasedOnLocation(latitude, longitude) {
+// Function to update form fields based on location and time
+function updateFormFields(latitude, longitude) {
     const locationStatus = document.getElementById('locationStatus');
     const timeStatus = document.getElementById('timeStatus');
-
-    if (isWithinCoordinates(latitude, longitude)) {
+    const submitButton = document.getElementById('submitButton'); // Added ID to the submit button
+    if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
         locationStatus.innerText = 'Inside School';
-        if (isAllowedTime()) {
-            timeStatus.innerText = 'Allowed Time';
-        } else {
-            timeStatus.innerText = 'Not Allowed Time';
-        }
+        timeStatus.innerText = 'Allowed Time';
+        submitButton.style.display = 'block'; // Show the submit button
     } else {
         locationStatus.innerText = 'Outside School';
         timeStatus.innerText = 'Not Allowed Time';
+        submitButton.style.display = 'none'; // Hide the submit button
     }
 }
 
@@ -44,10 +43,11 @@ if (navigator.geolocation) {
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
 
-        // Check if the user is within the allowed coordinates and fill the form
-        fillFormBasedOnLocation(latitude, longitude);
+        // Update form fields based on location and time
+        updateFormFields(latitude, longitude);
     });
 }
+
 
 document.getElementById("attendance-form").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -60,12 +60,12 @@ document.getElementById("attendance-form").addEventListener("submit", function (
     xhr.open("POST", "https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec", true);
     xhr.onload = function () {
         if (xhr.status === 200) {
-            // Redirect to the success.html page
-            window.location.href = "https://www.apple.com/";
-          } else {
+            // Show the "Received" message
+            document.getElementById("receivedMessage").style.display = "block";
+        } else {
             console.error("Error:", xhr.responseText);
-          }
-        };
+        }
+    };
     // Send the form data
     xhr.send(formData);
   });
