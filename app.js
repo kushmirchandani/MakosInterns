@@ -1,5 +1,4 @@
 function isWithinCoordinates(latitude, longitude) {
-    // Define your allowed coordinates (e.g., for a specific classroom)
     // const allowedLatitude = 25.686458460451433;
     // const allowedLongitude = -80.31437343518589;
     const allowedLatitude = 25.73942868813645;
@@ -20,7 +19,7 @@ function isAllowedTime() {
     const currentMinute = currentDate.getUTCMinutes();
 
     // Check if it's within the allowed time period (adjust as needed)
-    return currentHour >= 15 && currentHour < 1; // Example: 8 AM to 3 PM EST
+    return currentHour >= 8 && currentHour < 1; // Example: 8 AM to 3 PM EST
 }
 
 // Function to update form fields based on location and time
@@ -28,7 +27,7 @@ function updateFormFields(latitude, longitude) {
     const locationStatus = document.getElementById('locationStatus');
     const timeStatus = document.getElementById('timeStatus');
     const submitButton = document.getElementById('submitButton'); // Added ID to the submit button
-    if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
+    if (isWithinCoordinates(latitude, longitude) || isAllowedTime()) {
         locationStatus.innerText = 'Inside School';
         timeStatus.innerText = 'Allowed Time';
         submitButton.style.display = 'block'; // Show the submit button
