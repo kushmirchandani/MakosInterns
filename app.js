@@ -1,6 +1,4 @@
 function isWithinCoordinates(latitude, longitude) {
-    // const allowedLatitude = 25.686458460451433;
-    // const allowedLongitude = -80.31437343518589;
     const allowedLatitude = 25.73942868813645;
     const allowedLongitude = -80.16674834425794;
 
@@ -27,6 +25,11 @@ function updateFormFields(latitude, longitude) {
     const locationStatus = document.getElementById('locationStatus');
     const timeStatus = document.getElementById('timeStatus');
     const submitButton = document.getElementById('submitButton'); // Added ID to the submit button
+    
+    // Log the received latitude and longitude for debugging
+    console.log('Received latitude:', latitude);
+    console.log('Received longitude:', longitude);
+
     if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
         locationStatus.innerText = 'Inside School';
         timeStatus.innerText = 'Allowed Time';
@@ -37,6 +40,7 @@ function updateFormFields(latitude, longitude) {
         submitButton.style.display = 'none'; // Hide the submit button
     }
 }
+
 
 // Request the user's location
 if (navigator.geolocation) {
