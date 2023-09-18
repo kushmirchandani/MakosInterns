@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function() {
         xhr.send(formData);
 
         successMessage.style.display = 'block'
-        redirectToURL("https:www.apple.com");
+        redirectToURL("https://makosinterns-test.netlify.app/);
 
 
 
