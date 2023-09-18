@@ -1,5 +1,7 @@
 function isWithinCoordinates(latitude, longitude) {
     // Define your allowed coordinates (e.g., for a specific classroom)
+    // const allowedLatitude = 25.686458460451433;
+    // const allowedLongitude = -80.31437343518589;
     const allowedLatitude = 25.73942868813645;
     const allowedLongitude = -80.16674834425794;
 
@@ -18,7 +20,7 @@ function isAllowedTime() {
     const currentMinute = currentDate.getUTCMinutes();
 
     // Check if it's within the allowed time period (adjust as needed)
-    return currentHour >= 8 && currentHour < 15; // Example: 8 AM to 3 PM EST
+    return currentHour >= 15 && currentHour < 1; // Example: 8 AM to 3 PM EST
 }
 
 // Function to update form fields based on location and time
