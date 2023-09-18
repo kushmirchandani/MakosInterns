@@ -27,7 +27,7 @@
         }
         h2 {
             margin: 0;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             padding-top: 15px;
             font-family:Verdana, Geneva, Tahoma, sans-serif;
         }
@@ -58,18 +58,30 @@
         }
         input[type="submit"]:hover {
             background-color: #333; /* Darken the button on hover */
+            align-content: center;
         }
         p[id="TLS"]{
             color: #ccc;
             margin-top: 10%;
             margin-bottom: 0%;
         }
-        div[id="status"]{
-            padding-top: 100px;
-        }
-        H1{
-            color:green;
-            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        .status {
+            background-color: #f0f0f03a; 
+            border: 1px solid #dfdfdf5f; 
+            padding: 25px; 
+            margin-top: 50px; 
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(163, 163, 163, 0.139);
+            color:#ccc;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: medium;
+            text-align: center;
+        }   
+        H3{
+            color:#8CA88E;
+            font-family: Arial, sans-serif;
+            margin: 10px;
+            text-align: center;
         }
         
     </style>
@@ -79,6 +91,7 @@
     <div class="container">
         <img id="logo" src="https://gomakos.org/pics/MAST-ACADEMY_MOBILE.gif" alt="School Logo">
         <h2>Makos Interns Sign Out</h2>
+        <h3 id="successMessage">You have been signed out!</h3>
         <img id="loadingIcon" src="https://i.gifer.com/ZKZg.gif" alt="Loading" style="display: none;">
 
         <form id="attendanceForm" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec" onsubmit="submitForm(event)" >
@@ -91,21 +104,21 @@
             <!-- Other form fields as needed -->
             <input type="submit" value="Submit" id="submitButton" > <!-- Disabled by default -->
             <!-- <input type="button" id="scan-barcode-button" value="Scan Barcode"> -->
-            <h1 id="successMessage">Success!</h1>
+           
         </form>
         <div class="status">
-        <label for="locationStatus">Location Status:</label>
-            <span id="locationStatus"></span><br><br>
+        <label for="locationStatus">Location Status: <span id="locationStatus"></span></label>
             
-            <label for="timeStatus">Time Status:</label>
-            <span id="timeStatus"></span><br><br>
+            
+            <label for="timeStatus">Time Status:  <span id="timeStatus"></span></label>
+            <!-- <span id="timeStatus"></span><br><br> -->
             </div>
             <p id="TLS"> © A Life Studio Experience</p>
         </div>
         
     </div>
     <div id="receivedMessage" style="display: none;">
-        <p>Received! Your data has been submitted.</p>
+        >
     </div>
     <script src="app.js"></script>
 </body>
