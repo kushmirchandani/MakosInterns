@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     attendanceForm.style.display = 'none'
-    // successMessage.style.display = 'none'
+    successMessage.style.display = 'none'
     function isWithinCoordinates(latitude, longitude) {
         const allowedLatitude = 25.739485570895898;
         const allowedLongitude = -80.16671002055492;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentMinute = currentDate.getUTCMinutes();
 
         // Check if it's within the allowed time period (adjust as needed)
-        return currentHour >= 13 && currentHour < 20; // Example: 8 AM to 1 PM EST
+        return currentHour >= 18 && currentHour < 20; // Example: 8 AM to 1 PM EST
     }
 
     // Function to update form fields based on location and time
