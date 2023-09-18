@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     attendanceForm.style.display = 'none'
+    successMessage.style.display = 'none'
     function isWithinCoordinates(latitude, longitude) {
         const allowedLatitude = 25.739485570895898;
         const allowedLongitude = -80.16671002055492;
@@ -33,16 +34,20 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Received longitude:', longitude);
         if (isWithinCoordinates(latitude, longitude)) {
             locationStatus.innerText = 'Inside School';
-            attendanceForm.style.display = 'block' // Show the submit button
+            submitButton.style.display = 'block' // Show the submit button
+            attendanceForm.style.display = 'block'
         } else {
             locationStatus.innerText = 'Outside School';
-            attendanceForm.style.display = 'none' // Hide the submit button
+            submitButton.style.display = 'none' 
+            attendanceForm.style.display = 'none'// Hide the submit button
         }
         if(isAllowedTime()){
             timeStatus.innerText = 'Allowed Time';
+            submitButton.style.display = 'block'
             attendanceForm.style.display = 'block'
         } else {
             timeStatus.innerText = 'Outside Internship Period';
+            submitButton.style.display = 'none'
             attendanceForm.style.display = 'none'
         }
         // if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
@@ -72,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    document.getElementById("attendance-form").addEventListener("submit", function (event) {
+    document.getElementById("attendanceForm").addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
         // Serialize the form data
@@ -91,5 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         // Send the form data
         xhr.send(formData);
+
+        successMessage.style.display = 'block'
+        redirectToURL("https:www.apple.com");
+
+
+
     });
+
+    function redirectToURL(url) {
+        // Wait for 2 seconds (2000 milliseconds) and then redirect
+        setTimeout(function() {
+            window.location.href = url; // Redirect to the specified URL
+        }, 2000); // 2000 milliseconds = 2 seconds
+    }
+         // 2000 milliseconds = 2 seconds
+    
 });
