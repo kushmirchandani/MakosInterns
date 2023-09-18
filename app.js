@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             timeStatus.innerText = 'Allowed Time';
             attendanceForm.style.display = 'block'
         } else {
-            timeStatus.innerText = 'Not Time Yet';
+            timeStatus.innerText = 'Outside Internship Period';
             attendanceForm.style.display = 'none'
         }
         // if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
