@@ -6,9 +6,6 @@
     <title>Makos Interns</title>
     <link rel="stylesheet" href="style.css">
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script> -->
-    <script>
-            // updateFormFields(latitude, longitude);
-    </script>
     <style>
         body {
             display: flex;
@@ -73,7 +70,7 @@
         <h2>Makos Interns Sign Out</h2>
         <img id="loadingIcon" src="https://i.gifer.com/ZKZg.gif" alt="Loading" style="display: none;">
 
-        <form id="attendance-form" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec" onsubmit="submitForm(event)" >
+        <form id="attendanceForm" action="https://script.google.com/macros/s/AKfycbzxadU2a2cPBlm90wN0wrWZRKrlNTuZwsCOGJ6eIh3k8YIJo4yUPukxkAUNXOEIqIG2/exec" onsubmit="submitForm(event)" >
             <label for="studentName">Name:</label>
             <input type="text" id="studentName" name="studentName" required><br><br>
 
@@ -94,7 +91,7 @@
     </div>
     <div id="receivedMessage" style="display: none;">
         <p>Received! Your data has been submitted.</p>
-      </div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>
