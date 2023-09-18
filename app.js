@@ -113,3 +113,8 @@ document.addEventListener('DOMContentLoaded', function() {
          // 2000 milliseconds = 2 seconds
     
 });
+
+document.getElementById("refreshStatus").addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent the default link behavior (navigation)
+    location.reload(); // Reload the page
+});

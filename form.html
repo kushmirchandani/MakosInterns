@@ -83,6 +83,21 @@
             margin: 10px;
             text-align: center;
         }
+        a#refreshStatus {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px; /* Adjust padding as needed */
+            background-color: #a1a1a1;
+            color: #fff;
+            text-decoration: none; /* Remove the default underline */
+            border: 1px solid #dfdfdf;
+            border-radius: 10px;
+            margin-right: 10px; /* Add margin if needed */
+        }
+
+a#refreshStatus:hover {
+    background-color: #333; /* Darken the background on hover */
+
         
     </style>
 </head>
@@ -111,6 +126,7 @@
             
             
             <label for="timeStatus">Time Status:  <span id="timeStatus"></span></label>
+            <a href="#" id="refreshStatus">Refresh Status</a><br><br>
             <!-- <span id="timeStatus"></span><br><br> -->
             </div>
             <p id="TLS"> © A Life Studio Experience</p>
