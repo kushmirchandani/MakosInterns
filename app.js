@@ -6,7 +6,7 @@ function isWithinCoordinates(latitude, longitude) {
     const allowedLongitude = -80.16674834425794;
 
     // Set a threshold for the allowed range (you can adjust this)
-    const threshold = 0.01; // Adjust as needed
+    const threshold = 0.02; // Adjust as needed
 
     return (
         Math.abs(latitude - allowedLatitude) < threshold &&
