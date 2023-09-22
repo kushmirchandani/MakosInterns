@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const currentMinute = currentDate.getUTCMinutes();
 
         // Check if it's within the allowed time period (adjust as needed)
-        return currentHour >= 16 && currentHour < 20; // Example: 8 AM to 1 PM EST
+        return currentHour >= 17 && currentHour < 20; // Example: 8 AM to 1 PM EST
     }
 
     // Function to update form fields based on location and time
@@ -45,10 +45,12 @@ document.addEventListener('DOMContentLoaded', function() {
             timeStatus.innerText = 'Allowed Time';
             submitButton.style.display = 'block'
             attendanceForm.style.display = 'block'
+            console.log("within time");
         } else {
             timeStatus.innerText = 'Outside Internship Period';
             submitButton.style.display = 'none'
             attendanceForm.style.display = 'none'
+            console.log("OUT OF time");
         }
         // if (isWithinCoordinates(latitude, longitude) && isAllowedTime()) {
         //     locationStatus.innerText = 'Inside School';
