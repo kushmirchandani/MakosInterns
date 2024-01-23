@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (enteredPin === adminPin) {
             pinForm.style.display = "none";
             adminForm.style.display = "block";
+            console.log("its done");
         } else {
             alert("Incorrect PIN. Please try again.");
         }

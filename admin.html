@@ -28,7 +28,7 @@
         }
 
         #logo {
-            width: 100px; /* Adjust the size as needed */
+            width: 200px; /* Adjust the size as needed */
             height: auto;
             margin-bottom: 20px;
         }
@@ -87,9 +87,28 @@
             margin-bottom: 0;
         }
     </style>
+    <script>
+        function checkAdminPin() {
+            const adminPin = "apolinarrr"; // Replace with your hardcoded pin
+            const enteredPin = document.getElementById("adminPin").value;
+            const pinForm = document.getElementById("pinForm");
+            const adminForm = document.getElementById("adminForm");
+
+            if (enteredPin === adminPin) {
+                pinForm.style.display = "none";
+                adminForm.style.display = "block";
+            } else {
+                alert("Incorrect PIN. Please try again.");
+            }
+        }
+    </script>
 </head>
 <body>
-    <div class="container" id="adminContainer" style="display: none;"">
+
+    <script src="adminapp.js"></script>
+    <div class="container" id="adminContainer" style="display: block;"">
+        <img id="logo" src="https://gomakos.org/pics/MAST-ACADEMY_MOBILE.gif" alt="School Logo">
+
         <div id="pinForm">
             <label for="adminPin">Admin PIN:</label>
             <input type="password" id="adminPin" name="adminPin" required>
@@ -97,17 +116,17 @@
             <button type="button" onclick="checkAdminPin()">Submit</button>
         </div>
 
-        <form id="adminForm" action="https://script.google.com/macros/s/AKfycbxAmPfR-S5j2QE_bT3hT0x5pTfc70-V21m3wvs43AXCwZZ7awly1ErW4a0uKVdO-MUDgQ/exec" style="display: block;">
-            <label for="studentID">Student ID:</label>
+        <form id="adminForm" action="https://script.google.com/macros/s/AKfycbxAmPfR-S5j2QE_bT3hT0x5pTfc70-V21m3wvs43AXCwZZ7awly1ErW4a0uKVdO-MUDgQ/exec" style="display: none;">
+            <label for="studentID">Start Scanning Student IDs:</label>
             <input type="text" id="studentID" name="studentID" required minlength="7" maxlength="7">
             <br><br>
-            <button type="submit">Submit</button>
+            <button type="submit">Manual Submit</button>
         </form>
         <p id="receivedMessage">Data received successfully!</p>
 
         <p id="TLS">© A Life Studio Experience</p>
     </div>
 
-    <script src="adminapp.js"></script>
+   
 </body>
 </html>
